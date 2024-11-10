@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace Q1
 {
-    internal class ComputerGame : Game
+    internal class ComputerGame : Game // inheriate from the Game class 
     {
+        // property 
         public string PEGI_Rating {  get; set; }  
 
 
         #region Constructor 
-        public ComputerGame(string name, decimal price, DateTime date, string pegi) : base(name, price, date)
+        public ComputerGame(string name, decimal price, DateTime date, string pegi) : base(name, price, date) // base keyword lets us call the Game class constructor (constructor inheritance) 
         {
             PEGI_Rating = pegi;
         }
@@ -29,11 +30,11 @@ namespace Q1
             return Price * .9m; 
         }
 
-        // UpdatePrice method 
+        // UpdatePrice method uses the override keyword 
         public override void UpdatePrice(decimal percentageIncrease) 
         {
-            base.UpdatePrice(percentageIncrease);
-            Console.WriteLine("updating price from the ComputerGame class");
+            Price *= (1 + percentageIncrease);
+            Console.WriteLine( "updating price from the ComputerGame class");
         }
     }
 }
